@@ -22,7 +22,6 @@ const SOURCES = {
   transport: require('../../../assets/sounds/transport.wav') as number,
   tap: require('../../../assets/sounds/tap.wav') as number,
   spinLoop: require('../../../assets/sounds/spin-loop.mp3') as number,
-  ambient: require('../../../assets/sounds/ambient-drone.mp3') as number,
 } as const;
 
 type SoundName = keyof typeof SOURCES;
@@ -54,7 +53,6 @@ function disposeWhenDone(p: AudioPlayer, hardStopMs = 10_000): void {
 class SoundService {
   private pools = new Map<SoundName, AudioPlayer[]>();
   private spinPlayer: AudioPlayer | null = null;
-  private ambientPlayer: AudioPlayer | null = null;
 
   private get enabled(): boolean {
     return useSettingsStore.getState().uiSoundsEnabled;
@@ -161,29 +159,6 @@ class SoundService {
     this.spinPlayer = null;
   }
 
-  /** Looping ambient drone on the Visual screen while nothing is playing. */
-  startAmbient(): void {
-    if (!this.enabled) return;
-    if (this.ambientPlayer) return; // already droning
-    try {
-      this.ambientPlayer = createAudioPlayer(SOURCES.ambient);
-      this.ambientPlayer.loop = true;
-      this.ambientPlayer.volume = 0.7;
-      this.ambientPlayer.play();
-    } catch {
-      /* ignore */
-    }
-  }
-
-  stopAmbient(): void {
-    try {
-      this.ambientPlayer?.pause();
-      this.ambientPlayer?.remove();
-    } catch {
-      /* ignore */
-    }
-    this.ambientPlayer = null;
-  }
 }
 
 export const soundService = new SoundService();

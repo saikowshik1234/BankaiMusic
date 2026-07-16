@@ -10,7 +10,7 @@ import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-na
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { IconButton } from '@/components/IconButton';
 import { ProgressBar } from '@/components/ProgressBar';
-import { NowPlayingVisualizer } from '@/three/NowPlayingVisualizer';
+import { AnimatedVisualizer } from '@/components/AnimatedVisualizer';
 import { usePlayerStore } from '@/stores/playerStore';
 import { TurntableDevice } from '@/turntable/TurntableDevice';
 import { font, palette, spacing } from '@/theme';
@@ -111,7 +111,7 @@ export default function NowPlayingScreen() {
         <View style={styles.stage}>
           {showVisualizer ? (
             isFocused ? (
-              <NowPlayingVisualizer height={Math.round(screenH * 0.42)} isPlaying={status === 'playing'} />
+              <AnimatedVisualizer height={Math.round(screenH * 0.42)} isPlaying={status === 'playing'} />
             ) : (
               <View style={{ height: Math.round(screenH * 0.42) }} />
             )

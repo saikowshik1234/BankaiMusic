@@ -156,9 +156,9 @@ export default function LibraryScreen() {
           <View style={styles.headerActions}>
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel="Identify a song"
+              accessibilityLabel="Music Finder"
               hitSlop={10}
-              onPress={() => router.push('/identify')}
+              onPress={() => router.push('/finder')}
               style={({ pressed }) => [styles.addButton, pressed && { opacity: 0.55 }]}
             >
               <MaterialIcons name="mic" size={24} color={theme.text} />

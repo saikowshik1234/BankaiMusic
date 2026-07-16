@@ -14,7 +14,7 @@ type IconName = keyof typeof MaterialIcons.glyphMap;
 const TAB_META: Record<string, { label: string; icon: IconName }> = {
   index: { label: 'Play', icon: 'album' },
   library: { label: 'Library', icon: 'library-music' },
-  profile: { label: 'Visual', icon: 'graphic-eq' },
+  finder: { label: 'Finder', icon: 'search' },
 };
 
 function FloatingTabBar({ state, navigation }: BottomTabBarProps) {
@@ -75,7 +75,7 @@ export default function TabsLayout() {
     >
       <Tabs.Screen name="index" />
       <Tabs.Screen name="library" />
-      <Tabs.Screen name="profile" />
+      <Tabs.Screen name="finder" />
     </Tabs>
   );
 }

@@ -66,7 +66,6 @@ export default function RootLayout() {
         <Stack.Screen name="settings" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
         <Stack.Screen name="onboarding" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
         <Stack.Screen name="connect" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
-        <Stack.Screen name="identify" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
       </Stack>
     </GestureHandlerRootView>
   );
