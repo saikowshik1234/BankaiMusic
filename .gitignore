@@ -1,0 +1,23 @@
+node_modules/
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+.DS_Store
+.env
+.env.local
+.env*.local
+
+# AI assistant instruction files — not part of the shipped project
+CLAUDE.md
+.claude/
+
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md

@@ -1,0 +1,341 @@
+{
+  "name": "VINYL — the offline player",
+  "version": "8.0.0",
+  "source": "Vinyl.dc.html (claude.ai design share) — this file transcribes that design; the HTML mock is the visual reference of record.",
+  "philosophy": {
+    "summary": "The interface IS the object: a compact portable turntable rendered as a tactile 2.5D device. Drag the record to scrub, press keycaps to control transport. Warm off-white world, saturated palette accents, soft tinted shadows, playful skeuomorphism.",
+    "principles": [
+      "Object-first: the Now Playing screen is a physical device (ABS body, LED meter, glowing display, keycaps, vinyl). Everything else is quiet flat UI around it.",
+      "Physicality: vinyl spins with inertia (ease to 60°/s), drag scrubs (1 revolution = 8s of audio), keycaps depress, LEDs flicker with playback.",
+      "One focal point per screen; generous negative space.",
+      "Depth through light: layered soft shadows, inset highlights, gloss overlays. The vinyl gloss layer does NOT rotate with the disc.",
+      "60fps: all animation on the UI thread (reanimated worklets)."
+    ]
+  },
+  "palette": {
+    "cerulean": {
+      "hex": "#227C9D",
+      "role": "cool accent, links, gradient partner, section label (GENERAL)"
+    },
+    "tiffany": {
+      "hex": "#17C3B2",
+      "role": "positive/active: toggles on, YOUR LIBRARY label, teal gradients"
+    },
+    "sunset": {
+      "hex": "#FFCB77",
+      "role": "warm gradient partner, SOURCES label (#c9873a darkened for text)"
+    },
+    "floralWhite": {
+      "hex": "#FEF9EF",
+      "role": "app background, screen base"
+    },
+    "coral": {
+      "hex": "#FE6D73",
+      "role": "hero accent: active nav item, like (filled), repeat active, warm gradients"
+    },
+    "derived": {
+      "ink": "#1C2B33",
+      "inkSoft": "#42474B",
+      "muted": "#5C6A72",
+      "muted2": "#8A95A0",
+      "muted3": "#9AA0A6",
+      "iconIdle": "#A7B1B9",
+      "navIdle": "#B3BCC3",
+      "iconFaint": "#C3CCD2",
+      "sunsetText": "#C9873A",
+      "hairline": "#F0EADF",
+      "progressTrack": "#D9D5CD",
+      "progressFill": [
+        "#3B4046",
+        "#5C636B"
+      ]
+    },
+    "device": {
+      "bodyGradient": [
+        "#FEFEFE",
+        "#F6F6F6",
+        "#ECECEC"
+      ],
+      "bodyGradientAngle": "202deg (light top-right, shadow bottom-left)",
+      "panelGradient": [
+        "#2A2A2A",
+        "#0E0E0E"
+      ],
+      "ledPanelGradient": [
+        "#141414",
+        "#070707"
+      ],
+      "keycapGradient": [
+        "#DCDCDC",
+        "#C5C5C5"
+      ],
+      "keycapDarkGradient": [
+        "#CFCFCF",
+        "#BCBCBC"
+      ],
+      "keycapIcon": "#3A3A3A",
+      "keycapIconSoft": "#5A5A5A",
+      "ledOff": "#2B2B2B",
+      "displayAccent": "#FFB3B6",
+      "displayGlowRgb": "254,109,115",
+      "vinylBlacks": [
+        "#242428",
+        "#131315",
+        "#0A0A0C",
+        "#050506"
+      ],
+      "hubBlacks": [
+        "#2C2C30",
+        "#161618",
+        "#0E0E10"
+      ],
+      "spindle": "#DAD7D0",
+      "note": "Device accent default is CORAL #FFB3B6 (mock v2 turntableStyle default). Alternates: Ice blue #CDE6FF, Teal #7FF0E4."
+    },
+    "gradients": {
+      "coverSet": [
+        [
+          "#FE6D73",
+          "#FFCB77"
+        ],
+        [
+          "#227C9D",
+          "#17C3B2"
+        ],
+        [
+          "#17C3B2",
+          "#FFCB77"
+        ],
+        [
+          "#227C9D",
+          "#FE6D73"
+        ],
+        [
+          "#FFCB77",
+          "#FE6D73"
+        ],
+        [
+          "#17C3B2",
+          "#227C9D"
+        ],
+        [
+          "#FFCB77",
+          "#17C3B2"
+        ],
+        [
+          "#FE6D73",
+          "#227C9D"
+        ]
+      ],
+      "statTeal": [
+        "#227C9D",
+        "#17C3B2"
+      ],
+      "statWarm": [
+        "#FFCB77",
+        "#FE6D73"
+      ],
+      "profileHeader": [
+        "#227C9D",
+        "#17C3B2"
+      ],
+      "avatar": [
+        "#FFCB77",
+        "#FE6D73"
+      ],
+      "onboarding": [
+        "#227C9D",
+        "#17C3B2",
+        "#12A99A"
+      ],
+      "connectCard": [
+        "#FFCB77",
+        "#FE6D73"
+      ]
+    },
+    "rules": [
+      "Coral is THE interactive accent: primary buttons, active nav, like, repeat-active, crate hints, switch tracks.",
+      "Tiffany is reserved for section identity (YOUR LIBRARY kicker) and positive/informational icons.",
+      "Backgrounds stay floralWhite; coral and tiffany never sit adjacent at full saturation."
+    ]
+  },
+  "typography": {
+    "families": {
+      "display": "Sora (800 ExtraBold, 700 Bold) — titles, numbers, buttons",
+      "body": "Manrope (400–800) — everything else",
+      "mono": "IBM Plex Mono (600) — device display, timestamps, NOW PLAYING kicker"
+    },
+    "scale": {
+      "sideCaption": "Sora 800 34px, -0.02em",
+      "screenTitle": "Sora 800 30px ink, -0.02em",
+      "nowPlayingTitle": "Sora 800 26px ink, -0.02em, single line ellipsis",
+      "kicker": "mono 700 10-11px, letterSpacing 0.2-0.34em, colored per section (tiffany / coral / sunsetText)",
+      "artist": "Manrope 600 14px muted",
+      "deviceDisplay": "mono 600 14px uppercase, letterSpacing .16em, displayAccent with glow",
+      "listTitle": "Manrope 700 15px ink",
+      "listSub": "Manrope 600 12.5px muted2",
+      "timestamps": "mono 600 11px muted3, letterSpacing .05em",
+      "navLabel": "Manrope 800 9px",
+      "statNumber": "Sora 800 22px"
+    },
+    "icons": "Material (rounded) — filled variant for active nav / liked"
+  },
+  "layout": {
+    "screenPadding": 24,
+    "radius": {
+      "iconButton": 14,
+      "card": 18,
+      "cardLarge": 20,
+      "cover": 13,
+      "playlist": 22,
+      "nav": 26,
+      "device": 20,
+      "keycap": 9,
+      "pill": 999
+    },
+    "shadows": {
+      "iconButton": "0 4 12 rgba(30,40,50,.08) + inset top highlight",
+      "card": "0 8 20 rgba(30,40,50,.06)",
+      "cover": "0 6 14 rgba(30,40,50,.14)",
+      "playlistCard": "0 12 26 rgba(30,40,50,.16)",
+      "nav": "0 16 34 rgba(30,40,50,.18), bg white ~90% + blur",
+      "deviceBody": "-26 32 60 rgba(28,33,42,.32) — light source top-RIGHT so shadows fall bottom-LEFT",
+      "vinyl": "drop-shadow -24 26 22 rgba(0,0,0,.55)"
+    }
+  },
+  "screens": {
+    "nowPlaying": {
+      "background": "radial-ish: #FFFFFF top → #F4F2EE → #EAE6DF bottom",
+      "topBar": "40pt icon buttons (white, radius 14): chevron-down → Library, more-horiz → Settings. Center: 'NOW PLAYING' mono kicker + album name",
+      "deviceStage": "device card 300×398 centered, vinyl overhangs top-right (-40 right, -60 top)",
+      "device": {
+        "ledMeter": "upper-left 50×174 black inset panel; 2×8 grid of 13px rounded LEDs; bottom N rows lit in coral displayAccent with glow; playing: N flickers 3–8 every ~110ms; paused: N=2",
+        "vinyl": "232px disc: layered groove rings over near-black radial; 120px hub with 3 white tick marks + 9px spindle; static gloss overlay on top; draggable",
+        "displayPanel": "256×48 dark inset panel: scrolling/ellipsis track title (mono, glow) + 10-bar EQ animation (paused freezes bars)",
+        "transportKeycaps": "3 vertical keycaps 40×78 (radius 9): play/pause (with coral glow LED strip), previous, next; press = translateY 2px + inset shadow",
+        "speakerGrille": "78px circle bottom-right, dotted perf pattern"
+      },
+      "trackMeta": "title (Sora 26) + artist left, 44pt like button right (coral when liked, filled heart)",
+      "progress": "5px track #D9D5CD inset, dark gradient fill, 15px white thumb with dark ring; mono timestamps below",
+      "secondaryControls": "centered row gap 34: shuffle (tiffany when on), repeat (coral when on, repeat-one icon at mode 2), queue → Playlists",
+      "visualizer": {
+        "spec": "graphic-eq icon in the top bar (next to Settings) swaps the turntable device for a themed react-three-fiber ring visualizer (src/three/NowPlayingVisualizer.tsx), same stage area.",
+        "scene": "4 flat concentric rings in coral/tiffany/cerulean/sunset, each on its own sine-wobble speed+phase, slow overall Z rotation, occasional randomized 'kick' pulse (~0.5-0.8s apart) while playing; envelope drops to near-still when paused.",
+        "honestLimitation": "expo-audio exposes no playback waveform/FFT tap on this stack, so this is a convincing simulated envelope, not real frequency analysis. Canvas only mounts while toggled on AND the tab is focused."
+      }
+    },
+    "library": {
+      "spec": "Vertical coverflow list (user spec v4) — replaces the 3D crate. Plain RN views + Reanimated, no GL canvas.",
+      "layout": "black stage. Top: 'Library' title (Sora 30) + bare white plus button. Below: rounded search field, full width. Center: the coverflow list at ~62% screen height.",
+      "list": "each row 86px: circular art (56px, 64px centered) + title/artist. Distance from the centered focal row (continuously derived from scroll offset, not discrete steps) drives scale (1 → 0.73 over 3 rows), opacity (1 → 0.06), a perspective rotateX tilt (±18°), and an art desaturation wash — approximates the CSS spec's per-row blur without the GPU cost of live blur views per row. The centered row alone shows a soft background wash and a coral Play pill; tapping it is a no-op unless that row is actually centered (guards fast-scroll mis-taps). Snap-to-center scrolling (snapToInterval = row height).",
+      "sound": "record-shuffle flourish (700ms of the spin sample) on play"
+    },
+    "settings": {
+      "presentation": "slide-up overlay, spring cubic-bezier(.32,.72,0,1) 420ms",
+      "groups": [
+        "PLAYBACK (tiffany kicker): Audio quality row, Equalizer row, Crossfade toggle (tiffany track, knob 22px)",
+        "SOURCES (sunsetText kicker): 'Connect a service' warm gradient card → Onboarding",
+        "GENERAL (cerulean kicker): Appearance (Light), Offline storage, Privacy policy (store requirement), About VINYL v1.0.0"
+      ],
+      "rowAnatomy": "white group card radius 20, hairline #F0EADF dividers inset 16, colored 24px leading icon, title 15/700, sub 12/600 muted2, chevron trailing"
+    },
+    "onboarding": {
+      "presentation": "slide-up overlay over everything, teal gradient background with soft blurred palette circles",
+      "content": "glass close button, 'GET STARTED' kicker, 'Bring all your music together' Sora 34, body copy, source cards (Import files / Scan device / Streaming services — all live, -> /connect for streaming), ink 'Start listening' button pinned bottom"
+    },
+    "connect": {
+      "presentation": "slide-up overlay, pure black stage",
+      "content": "one card per service (Spotify, YouTube Music, Apple Music): flat brand-color badge (no logo assets), Connect/Import action. Import flow: playlist list -> track-match results (coral 'Play the N matched tracks', unmatched rows deep-link out to the source app). Official APIs only — no audio ever streams into this app."
+    },
+    "identify": {
+      "presentation": "slide-up overlay, pure black stage — Song ID ('what's this song')",
+      "content": "idle: coral mic button + prompt copy. Listening: 3 staggered coral pulse rings around the mic (1.8s, delay 0/600/1200ms) for the 8s capture window. Identifying: spinner glyph swap. Result: title/artist/album + Spotify/Apple Music open links if matched, or a 'no match' state. All states offer 'listen again'.",
+      "backend": "records via expo-audio's useAudioRecorder, ships the clip to a Cloudflare Worker proxy (server/identify-proxy/) which holds the real AudD token server-side — the app itself never has it. The only network-dependent feature in the app."
+    },
+    "visual": {
+      "spec": "The Earth and Moon diorama. No chrome except the floating settings button.",
+      "idle": "drag to spin (momentum), pinch to zoom 0.7–1.7, single tap = zoom-pulse + chime (idle only).",
+      "playing": "the Earth gently rocks (±~1°) and pulses (≤4.5% scale) with a layered-sine beat envelope; drag disabled. No bars, no labels.",
+      "sky": "in-scene: night = navy→black + starfield + moonlight + warm sunlight fill; day = sunset gradient + low sun. Follows dark mode.",
+      "nowPlaying": "bottom-center: bubbly Fredoka display title + Manrope artist, lifted clear of the floating nav.",
+      "model": "assets/models/earth-moon.glb — textureless (flat baseColorFactor materials: blue oceans, green land, gray moon), materials forced DoubleSide. Box3 re-center + normalize to 2.04."
+    }
+  },
+  "navigation": {
+    "pattern": "floating pill tab bar: left/right 16, bottom 16, height 66, radius 26, white ~90% + blur, 5 items",
+    "tabs": [
+      {
+        "name": "Play",
+        "icon": "album"
+      },
+      {
+        "name": "Library",
+        "icon": "library-music"
+      },
+      {
+        "name": "You",
+        "icon": "person"
+      }
+    ],
+    "states": "active: coral + filled icon; idle: #B3BCC3. Labels 9px/800.",
+    "contentInset": "scrollable screens need ~120pt bottom padding to clear the bar",
+    "note": "Search and Lists tabs removed in v3 — search lives inside Library; collections return with real playlists later."
+  },
+  "motion": {
+    "vinylSpin": "target 60°/s while playing; ease-in factor .06/frame; ease-out .08/frame on pause",
+    "vinylScrub": "drag angle delta rotates disc 1:1; progress += deg/360 × 8s; clamp to track; velocity follows drag",
+    "screenChange": "cubic-bezier(.32,.72,0,1) 440ms (mock uses translateX 22% + scale .9 + rotateY -8° carousel; native app may use simpler fade/native transitions)",
+    "overlays": "translateY 100% → 0, same bezier, 420-460ms",
+    "eqBars": "10 bars, scaleY .35↔1, staggered .65-.95s loops",
+    "ledFlicker": "~110ms interval, rows 3-8 random while playing",
+    "keycapPress": "translateY 2px + inset shadow while pressed"
+  },
+  "accessibility": {
+    "touchTargets": "min 44×44 (40pt visuals get hitSlop)",
+    "gestures": "vinyl scrub and every device control have plain-button equivalents",
+    "reduceMotion": "disable vinyl spin, LED flicker, EQ animation; keep functional transitions",
+    "contrast": "ink on floralWhite AA; displayAccent on near-black AA"
+  },
+  "sound": {
+    "source": "user-provided samples in assets/sounds/",
+    "map": {
+      "pause.wav": "play→pause on keycap/toggle",
+      "resume.wav": "pause→play on keycap/toggle",
+      "transport.wav": "next / previous keycaps + record selection in the crate",
+      "spin-loop.mp3": "loops while scrubbing the vinyl by hand"
+    },
+    "rule": "UI sounds are one-shot players separate from the music pipeline; user-toggleable in Settings > Interface sounds"
+  },
+  "backend": {
+    "detection": [
+      "1. App-folder auto-scan on EVERY launch: documentDirectory root + music/ (no permission needed). iOS Files app shows the VINYL folder (UIFileSharingEnabled) — files dropped there just appear.",
+      "2. Android device-wide media scan when READ_MEDIA_AUDIO granted.",
+      "3. Document-picker import as the LAST-RESORT fallback; picked files are copied into music/ and re-detected by the folder scan."
+    ],
+    "persistence": "zustand persist + AsyncStorage: vinyl-library (tracks, sort), vinyl-player (likes, history, shuffle, repeat), vinyl-settings",
+    "playback": "single AudioPlayer pipeline; old player paused+released before the next loads; load token discards superseded rapid presses"
+  },
+  "darkMode": {
+    "toggle": "Settings > Appearance > Dark mode (persisted)",
+    "dark": {
+      "bg": "#000000 pure black",
+      "surface": "#141619",
+      "text": "#F4F1EA",
+      "textMuted": "#A8B0B7",
+      "hairline": "#22262A",
+      "nowPlayingGradient": [
+        "#17191C",
+        "#0A0B0D",
+        "#000000"
+      ],
+      "progressFill": "coral gradient (dark fill invisible on black)"
+    },
+    "rule": "Accents (coral/tiffany/cerulean/sunset) are shared across modes; the turntable device is a physical object and does not re-theme."
+  },
+  "themeRules": {
+    "themedSurfaces": "Play, Library, You, Settings follow useThemeColors (light floralWhite / dark pure #000).",
+    "darkStageSurfaces": "Identify (Song ID) and Connect modals are intentionally dark in BOTH modes — immersive, camera-like surfaces.",
+    "device": "The turntable device never re-themes; it is a physical object.",
+    "library": "Coverflow list is theme-aware: dark = white text on black, light = ink text on floralWhite; row wash and art dim derive from the active theme."
+  }
+}
